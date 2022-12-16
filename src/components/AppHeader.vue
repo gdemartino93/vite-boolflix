@@ -11,7 +11,7 @@ export default{
   },
   methods:{
     search(){
-      let searchUrl = store.searchName;
+      let searchUrl = store.searchApi;
       if (store.searchName !== ""){
         searchUrl += `${store.searchName}`
       }
