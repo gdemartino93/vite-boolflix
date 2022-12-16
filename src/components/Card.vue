@@ -12,7 +12,7 @@ data(){
 
 <template>
     <div class="item">
-      <img :src="store.imgEndPoint + item.poster_path" alt="">
+      <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
       <span class="title">{{ item.title }}</span>
       <span class="title-original">{{ item.original_title }}</span>
       <span class="leng">{{ item.original_language }}</span>
@@ -30,9 +30,7 @@ data(){
     background: bisque;
     display: flex;
     flex-direction: column;
-    img{
-     
-    }
+
 }
 
 </style>
