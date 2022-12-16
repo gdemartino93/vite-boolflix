@@ -11,6 +11,9 @@ export default{
         }
     },
     methods:{
+        prova(){
+            alert("sdasd")
+        },
         callApi(){
             let newUrl = store.api;
             axios

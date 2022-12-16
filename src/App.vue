@@ -10,7 +10,10 @@ export default{
 
 <template>
 <header>
-  <AppHeader />
+  <div class="col-12 d-flex align-items-center justify-content-between">
+    <AppHeader />
+  </div>
+  
 </header>
 <main>
   <AppMain />
