@@ -1,7 +1,14 @@
-# Vue 3 + Vite
+<!-- Chiave API (v3 auth) -->
+b1ef94c3c1268cf158fbe5a28e28a61c
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<!-- Esempio Richiesta API -->
+https://api.themoviedb.org/3/movie/550?api_key=b1ef94c3c1268cf158fbe5a28e28a61c
 
-## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<!-- API Read Access Token (v4 auth) -->
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMWVmOTRjM2MxMjY4Y2YxNThmYmU1YTI4ZTI4YTYxYyIsInN1YiI6IjYzOWM1NzM2ODFhN2ZjMDBhMjY0MjMyOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sp0ISsp9TshwnZpFft6jVo3B_kBIIS6Lgdpeva94_04
+
+
+
+<!-- documentazione api: -->
+https://developers.themoviedb.org/3 

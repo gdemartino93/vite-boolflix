@@ -1,9 +1,18 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue';
+
+export default{
+  name : "App",
+  components : { AppHeader , AppMain}
+}
 </script>
 
 <template>
-asdasd
+  
+<AppHeader />
+<AppMain />
+
 </template>
 
 <style lang="scss">
