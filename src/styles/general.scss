@@ -26,7 +26,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+header{
+  background: black;
+  color: red;
+}
+main{
+  background: grey;
+  padding: 25px;
+  display: flex;
+  // debug
+  min-height: 90vh;
 
+}
   
   @media (prefers-color-scheme: light) {
     :root {

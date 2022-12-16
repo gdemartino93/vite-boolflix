@@ -9,9 +9,14 @@ export default{
 </script>
 
 <template>
-  
-<AppHeader />
-<AppMain />
+<header>
+  <AppHeader />
+</header>
+<main>
+  <AppMain />
+</main>
+
+
 
 </template>
 
