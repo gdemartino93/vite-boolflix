@@ -10,20 +10,20 @@ export default{
             store
         }
     },
-    // methods:{
+    methods:{
 
-    //     callApi(){
-    //         let newUrl = store.api;
-    //         axios
-    //         .get(newUrl)
-    //         .then(res => {
-    //             store.arrayItem = res.data.results
-    //         })
-    //     }
-    // },
-    // mounted(){
-    //     this.callApi()
-    // }
+        callApi(){
+            let newUrl = store.api;
+            axios
+            .get(newUrl)
+            .then(res => {
+                store.arrayItem = res.data.results
+            })
+        }
+    },
+    mounted(){
+        this.callApi()
+    }
 }
 </script>
 

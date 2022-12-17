@@ -7,9 +7,7 @@ export default{
     }
   },
   methods:{
-    prova(){
-        alert("lol")
-    }
+
   }
 }
 </script>
