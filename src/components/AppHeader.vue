@@ -12,13 +12,14 @@ export default{
   methods:{
     search(){
       let searchUrl = store.searchApi;
-      if (store.searchName !== ""){
         searchUrl += `${store.searchName}`
-      }
       axios
       .get(searchUrl)
       .then(res => {
         store.arrayItem = res.data.results
+      })
+      .catch(err =>{
+        console.log("error" + err);
       })
     }
 
