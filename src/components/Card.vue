@@ -48,6 +48,7 @@ computed:{
         <img :src="flagString" alt="">
         <span class="fw-bold">Vote average:</span>
         <span class="vote"> {{ decimalToInt }} </span>
+
       </div>
     </div>
 
@@ -75,7 +76,7 @@ computed:{
   }
 }
 .item-back {
-  background: grey;
+  color: white;
   width: 100%;
   height: 100%;
   display: flex;
@@ -83,6 +84,9 @@ computed:{
   align-items: center;
   flex-direction: column;
   transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
+  background-image: url('../../public/img/info.jpg');
+  background-size: contain;
+  
 
   img{
     width: 50px;
