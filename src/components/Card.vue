@@ -6,8 +6,14 @@ data(){
   return{
     store,
     cardVisible : true,
+    isFlipped: false
     
   }
+},
+methods:{
+  flipCard() {
+      this.isFlipped = !this.isFlipped;
+    }
 },
 computed:{
   flagString(){
@@ -24,40 +30,109 @@ computed:{
 }
 }
 </script>
-
+<!-- @mouseover="cardVisible = false" @mouseleave="cardVisible = true" -->
 <template>
+    <div class="item" v-bind:class="{ flipped: isFlipped }" v-on:click="flipCard">
+      <div class="item-front" >
+        <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
+      </div>
+      <div class="item-back" >
+        <span class="title">{{ item.title }}</span>
+        <span class="title-original">{{ item.original_title }}</span>
+        <img :src="flagString" alt="">
+        <span class="leng">{{ item.original_language }}</span>
+        <span class="vote"> {{ item.vote_average }} </span>
+      </div>
+    </div>
 
-    <div class="item" v-show="cardVisible==true" @mouseover="cardVisible = false" @mouseleave="cardVisible = true">
-      <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
-    </div>
-    <div class="item-back" v-show="cardVisible==false">
-      <span class="title">{{ item.title }}</span>
-      <span class="title-original">{{ item.original_title }}</span>
-      <img :src="flagString" alt="">
-      <span class="leng">{{ item.original_language }}</span>
-      <span class="vote"> {{ item.vote_average }} </span>
-    </div>
 </template>
 
 <style scoped lang="scss">
 @use '../styles/partials/variables' as *;
-.item{
-    width: 200px;
-    border: 1px solid black;
-    background: bisque;
-    display: flex;
-    flex-direction: column;
-}
-.item-back{
+.item {
+  perspective: 1000px;
+  position: relative;
   width: 200px;
-  border: 1px solid black;
-  background: red;
-  display: flex;
-  flex-direction: column;
+  height: 300px;
+}
+
+.item-front, .item-back {
+  position: absolute;
+
+  backface-visibility: hidden; /* nasconde il lato posteriore della carta quando viene ruotata */
+  transition: transform 1s; /* aggiunge una transizione alla rotazione della carta */
+}
+.item-front{
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+.item-back {
+  transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
+  background: yellow;
+  width: 100%;
+  height: 100%;
   img{
     width: 50px;
     height: 50px;
   }
 }
 
+
+.item.flipped .item-front {
+  transform: rotateY(180deg); /* ruota il lato frontale della carta di 180 gradi quando la classe "flipped" viene aggiunta alla carta */
+}
+
+.item.flipped .item-back {
+  transform: rotateY(0); /* ruota il lato posteriore della carta di 0 gradi quando la classe "flipped" viene aggiunta alla carta */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// .item-front{
+//     width: 100%;
+//     border: 1px solid black;
+//     background: bisque;
+//     display: flex;
+//     flex-direction: column;
+//     position: absolute;
+//     z-index: 2;
+//     backface-visibility: hidden;
+// }
+// .item-back{
+//   width: 100%;
+//   height: 100%;
+//   border: 1px solid black;
+//   background: red;
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   z-index: 1;
+//   backface-visibility: hidden;
+//   img{
+//     width: 50px;
+//     height: 50px;
+//   }
+// }
+
+
+// }
+// .item:hover .item-front {
+//     transform: rotateY(180deg);
+//     transition: 5s;
+//   }
+//   .item:hover .item-back {
+//     transform: rotateY(360deg);
+//     // transition: 5s;
+//   }
 </style>
