@@ -12,11 +12,15 @@ data(){
 computed:{
   flagString(){
       for (let i = 0; i < this.store.flags.length; i++) {
+        // se in questa iterazione store.flags.lang è inclusa nell'item original language allora ritorno il valore di store flag img.
                 if (this.store.flags[i].lang.includes(this.item.original_language)) {
                     return this.store.flags[i].img
                 }
       }
-  }
+      // aggiungi ultima img dell'array ( da cambiare con altro elemento dello store per mantenibilitàe prevedere l'aggiornamento dell'array)
+      return this.store.flags[this.store.flags.length - 1].img
+  },
+
 }
 }
 </script>
