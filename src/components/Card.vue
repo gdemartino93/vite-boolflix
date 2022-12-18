@@ -26,6 +26,9 @@ computed:{
       // aggiungi ultima img dell'array ( da cambiare con altro elemento dello store per mantenibilitàe prevedere l'aggiornamento dell'array)
       return this.store.flags[this.store.flags.length - 1].img
   },
+  decimalToInt() {
+  return Math.round(this.item.vote_average / 2);
+}
 
 }
 }
@@ -37,11 +40,14 @@ computed:{
         <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
       </div>
       <div class="item-back" >
+        <span class="fw-bold">Title:</span>
         <span class="title">{{ item.title }}</span>
+        <span class="fw-bold">Original Title:</span>
         <span class="title-original">{{ item.original_title }}</span>
+        <span class="fw-bold">Leng:</span>
         <img :src="flagString" alt="">
-        <span class="leng">{{ item.original_language }}</span>
-        <span class="vote"> {{ item.vote_average }} </span>
+        <span class="fw-bold">Vote average:</span>
+        <span class="vote"> {{ decimalToInt }} </span>
       </div>
     </div>
 
@@ -69,10 +75,15 @@ computed:{
   }
 }
 .item-back {
-  transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
-  background: yellow;
+  background: grey;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
+
   img{
     width: 50px;
     height: 50px;
