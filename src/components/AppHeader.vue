@@ -11,10 +11,12 @@ export default{
   },
   methods:{
     search(){
-      let searchUrl = store.searchApi;
+      let searchSerie = store.searchSerie;
+      let searchUrl = store.searchFilm;
         searchUrl += `${store.searchName}`
+        searchSerie += `${store.searchName}`
       axios
-      .get(searchUrl)
+      .get(searchSerie,searchUrl)
       .then(res => {
         store.arrayItem = res.data.results
       })

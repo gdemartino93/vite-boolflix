@@ -13,9 +13,9 @@ export default{
     methods:{
 
         callApi(){
-            let newUrl = store.api;
+            let searchFilm = store.api;
             axios
-            .get(newUrl)
+            .get(searchFilm)
             .then(res => {
                 store.arrayItem = res.data.results
             })
@@ -30,6 +30,8 @@ export default{
 <template>
 
 <Card v-for="(card,index) in store.arrayItem" :key="index" :item="card" />
+
+
 
 </template>
 

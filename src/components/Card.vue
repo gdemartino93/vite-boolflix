@@ -48,6 +48,13 @@ computed:{
         <img :src="flagString" alt="">
         <span class="fw-bold">Vote average:</span>
         <span class="vote"> {{ decimalToInt }} </span>
+        <div>
+          <font-awesome-icon icon="fa-regular fa-star" />
+          <font-awesome-icon icon="fa-regular fa-star" />
+          <font-awesome-icon icon="fa-regular fa-star" />
+          <font-awesome-icon icon="fa-regular fa-star" />
+          <font-awesome-icon icon="fa-regular fa-star" />
+        </div>
 
       </div>
     </div>
@@ -86,11 +93,16 @@ computed:{
   transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
   background-image: url('../../public/img/info.jpg');
   background-size: contain;
+  text-align: center;
   
 
   img{
     width: 50px;
     height: 50px;
+  }
+  svg{
+    width: 30px;
+    height: 30px;
   }
 }
 
