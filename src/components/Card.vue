@@ -64,11 +64,12 @@ computed:{
   position: relative;
   width: 200px;
   height: 300px;
+  
 }
 
 .item-front, .item-back {
   position: absolute;
-
+  border-radius: 18px 18px;
   backface-visibility: hidden; /* nasconde il lato posteriore della carta quando viene ruotata */
   transition: transform 1s; /* aggiunge una transizione alla rotazione della carta */
 }
@@ -76,6 +77,7 @@ computed:{
   img{
     width: 100%;
     height: 100%;
+    border-radius: 18px 18px;
   }
 }
 .item-back {

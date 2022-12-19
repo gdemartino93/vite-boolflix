@@ -29,7 +29,7 @@ export default{
 
 <template>
 <h3 class="fw-bold text-white">Popular:</h3>
-<div class="d-flex flex-wrap ">
+<div class="d-flex flex-wrap gap-2 ">
     <Card v-for="(card,index) in store.arrayItem" :key="index" :item="card" />
 </div>
 
