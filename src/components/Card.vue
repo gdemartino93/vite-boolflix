@@ -1,5 +1,6 @@
 <script >
 import { store } from '../store';
+import axios from 'axios' ;
 export default{
 props :["item"],
 data(){
@@ -21,9 +22,19 @@ methods:{
       if ( this.isFlipped == true){
         this.isFlipped = false
       }
-    }
-  
+    },
+    getActors(){
+            let getActors = store.searchActors;
+            axios
+            .get(getActors)
+            .then(res => {
+                store.arrayActors = res.data.results
 
+            })
+        },
+},
+mounted(){
+  this.getActors()
 },
 computed:{
   flagString(){
@@ -46,7 +57,7 @@ computed:{
 <template>
     <div class="item" :class="{ flipped: isFlipped }" @mouseover="flipCard" @mouseleave="flipLeave">
       <div class="item-front" >
-        <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
+        <img :src="store.imgEndPoint + item.poster_path" :alt="item.title" onerror="this.src='img/errore.jpg'">
       </div>
       <div class="item-back" >
         <div class="d-flex flex-column" >
@@ -61,9 +72,15 @@ computed:{
         <img :src="flagString" alt="">
         <span class="fw-bold">Vote average:</span>
         <div class="d-flex">
-          <i class="fa-solid fa-star text-warning" v-for="item in decimalToInt"></i>
-          <i class="fa-regular fa-star" v-for="item in 5 - decimalToInt"></i>
+          <i class="fa-solid fa-star text-warning" v-for="item in decimalToInt" :key="item"></i>
+          <i class="fa-regular fa-star" v-for="item in 5 - decimalToInt" :key="item"></i>
         </div>
+        <span>ID:</span>
+        <span>{{ item.id }}</span>
+        <span v-for="(actor,index) in store.arrayActors" :key="index">
+        {{ actor }}
+        </span>
+        
 
 
       </div>

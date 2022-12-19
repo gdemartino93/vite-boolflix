@@ -19,10 +19,12 @@ export default{
             .then(res => {
                 store.arrayItem = res.data.results
             })
-        }
+        },
+
     },
     mounted(){
         this.callApi()
+       
     }
 }
 </script>

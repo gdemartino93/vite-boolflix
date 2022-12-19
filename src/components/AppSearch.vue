@@ -24,6 +24,6 @@ export default{
 
 
 .input-group{
-    width: 20%;
+    min-width: 40vh;
 }
 </style>
