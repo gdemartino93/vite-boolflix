@@ -49,10 +49,14 @@ computed:{
         <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
       </div>
       <div class="item-back" >
-        <span class="fw-bold">Title:</span>
-        <span class="title" >{{ item.title }}</span>
-        <span class="fw-bold">Original Title:</span>
-        <span class="title-original" >{{ item.original_title }}</span>
+        <div class="d-flex flex-column" >
+          <span class="fw-bold">Title:</span>
+          <span class="title" >{{ item.title }}</span>
+        </div>
+        <div class="d-flex flex-column" v-if="item.title !== item.original_title">
+          <span class="fw-bold">Original Title:</span>
+          <span class="title-original" >{{ item.original_title }}</span>
+        </div>
         <span class="fw-bold">Leng:</span>
         <img :src="flagString" alt="">
         <span class="fw-bold">Vote average:</span>
