@@ -12,8 +12,18 @@ data(){
 },
 methods:{
   flipCard() {
-      this.isFlipped = !this.isFlipped;
+      // this.isFlipped = !this.isFlipped;
+      if ( this.isFlipped == false){
+        this.isFlipped = true
+      }
+    },
+    flipLeave(){
+      if ( this.isFlipped == true){
+        this.isFlipped = false
+      }
     }
+  
+
 },
 computed:{
   flagString(){
@@ -34,7 +44,7 @@ computed:{
 }
 </script>
 <template>
-    <div class="item" :class="{ flipped: isFlipped }" @click="flipCard">
+    <div class="item" :class="{ flipped: isFlipped }" @mouseover="flipCard" @mouseleave="flipLeave">
       <div class="item-front" >
         <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
       </div>
