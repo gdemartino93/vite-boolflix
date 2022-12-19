@@ -31,13 +31,9 @@ header{
   color: red;
 }
 main{
-  background: grey;
-  padding: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  // debug
-  min-height: 90vh;
-
+padding: 25px;
+background-color: grey;
+min-height: 90vh;
 }
   
   @media (prefers-color-scheme: light) {

@@ -28,33 +28,29 @@ computed:{
   },
   decimalToInt() {
   return Math.round(this.item.vote_average / 2);
-}
+},
 
 }
 }
 </script>
-<!-- @mouseover="cardVisible = false" @mouseleave="cardVisible = true" -->
 <template>
-    <div class="item" v-bind:class="{ flipped: isFlipped }" v-on:click="flipCard">
+    <div class="item" :class="{ flipped: isFlipped }" @click="flipCard">
       <div class="item-front" >
         <img :src="store.imgEndPoint + item.poster_path" :alt="item.title">
       </div>
       <div class="item-back" >
         <span class="fw-bold">Title:</span>
-        <span class="title">{{ item.title }}</span>
+        <span class="title" >{{ item.title }}</span>
         <span class="fw-bold">Original Title:</span>
-        <span class="title-original">{{ item.original_title }}</span>
+        <span class="title-original" >{{ item.original_title }}</span>
         <span class="fw-bold">Leng:</span>
         <img :src="flagString" alt="">
         <span class="fw-bold">Vote average:</span>
-        <span class="vote"> {{ decimalToInt }} </span>
-        <div>
-          <font-awesome-icon icon="fa-regular fa-star" />
-          <font-awesome-icon icon="fa-regular fa-star" />
-          <font-awesome-icon icon="fa-regular fa-star" />
-          <font-awesome-icon icon="fa-regular fa-star" />
-          <font-awesome-icon icon="fa-regular fa-star" />
+        <div class="d-flex">
+          <i class="fa-solid fa-star text-warning" v-for="item in decimalToInt"></i>
+          <i class="fa-regular fa-star" v-for="item in 5 - decimalToInt"></i>
         </div>
+
 
       </div>
     </div>
@@ -94,7 +90,6 @@ computed:{
   background-image: url('../../public/img/info.jpg');
   background-size: contain;
   text-align: center;
-  
 
   img{
     width: 50px;
