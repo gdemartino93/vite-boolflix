@@ -55,7 +55,7 @@ computed:{
 }
 </script>
 <template>
-    <div class="item" :class="{ flipped: isFlipped }" @mouseover="flipCard" @mouseleave="flipLeave">
+    <div class="item" :class="{ flipped: isFlipped }" @mouseover="flipCard"  @mouseleave="flipLeave">
       <div class="item-front" >
         <img :src="store.imgEndPoint + item.poster_path" :alt="item.title" onerror="this.src='img/errore.jpg'">
       </div>
@@ -75,14 +75,8 @@ computed:{
           <i class="fa-solid fa-star text-warning" v-for="item in decimalToInt" :key="item"></i>
           <i class="fa-regular fa-star" v-for="item in 5 - decimalToInt" :key="item"></i>
         </div>
-        <span>ID:</span>
-        <span>{{ item.id }}</span>
-        <span v-for="(actor,index) in store.arrayActors" :key="index">
-        {{ actor }}
-        </span>
-        
-
-
+        <span>Description:</span>
+        <span class="description"> {{ item.overview }}</span>
       </div>
     </div>
 
@@ -116,13 +110,13 @@ computed:{
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   transform: rotateY(180deg); /* ruota il lato posteriore della carta di 180 gradi */
   background-image: url('../../public/img/info.jpg');
   background-size: contain;
   text-align: center;
+  overflow: auto;
 
   img{
     width: 50px;
@@ -131,6 +125,9 @@ computed:{
   svg{
     width: 30px;
     height: 30px;
+  }
+  .description{
+    width: 85%;
   }
 }
 

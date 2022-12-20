@@ -21,7 +21,8 @@
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
     "sass": "^1.56.2",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-spinner": "^1.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
